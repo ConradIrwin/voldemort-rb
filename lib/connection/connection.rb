@@ -128,15 +128,15 @@ class Connection
 
   def get(key)
     self.rebalance_connection_if_needed
-    self.get_from(self.db_name, key, false)
+    self.get_from(self.db_name, key, true)
   end
 
   def get_all(keys)
     self.rebalance_connection_if_needed
-    self.get_all_from(self.db_name, keys, false)
+    self.get_all_from(self.db_name, keys, true)
   end
 
-  def put(key, value, version = nil, route = false)
+  def put(key, value, version = nil, route = true)
     self.rebalance_connection_if_needed
     self.put_from(self.db_name, key, value, version, route)
   end
